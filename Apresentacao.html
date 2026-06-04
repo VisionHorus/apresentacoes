@@ -400,9 +400,70 @@
       .nav { align-items: flex-start; flex-direction: column; }
       .grid-3, .grid-2, .split { grid-template-columns: 1fr; }
       .hero { padding-top: 48px; }
-      th, td { display: block; width: 100%; }
-      tr { display: block; border-bottom: 1px solid var(--line); }
-      tr:last-child { border-bottom: 0; }
+
+      .promo-price{
+        color: var(--gold);
+        font-size: 1.0rem;
+        font-weight: 400;
+      } 
+      .responsive-table {
+        border: 0;
+        background: transparent;
+        display: grid;
+        gap: 14px;
+      }
+
+      .responsive-table thead {
+        display: none;
+      }
+
+      .responsive-table tbody {
+        display: grid;
+        gap: 14px;
+      }
+
+      .responsive-table tr {
+        display: grid;
+        gap: 10px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255,255,255,.05);
+      }
+
+      .responsive-table td {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 12px;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        align-items: center;
+      }
+
+      .responsive-table td::before {
+        content: attr(data-label);
+        color: var(--gold);
+        font-size: .72rem;
+        line-height: 1.35;
+        font-weight: 950;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+
+      .responsive-table td:first-child {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        color: var(--text);
+        font-size: 1.05rem;
+        font-weight: 900;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .responsive-table td:first-child::before {
+        display: none;
+      }
     }
 
     @media print {
@@ -445,13 +506,12 @@
   <main>
     <section id="home" class="hero wrap">
       <div 
-      class="badge">Estratégia digital para bares e restaurantes
+      class="badge">Estratégia digital
     </div>
 
-      <h1>Mais presença no Google, mais força no digital e mais público nas unidades do <strong>Tamo Junto Botequim</strong>.</h1>
+      <h1>Transformando a análise em mais clientes para o <strong>Tamo Junto Botequim</strong>.</h1>
       <p class="lead">
-        Uma proposta direta para estruturar site, tráfego pago, Google Business, SEO local e conteúdo audiovisual,
-        transformando a força da marca em crescimento digital real.
+        Com base nas oportunidades identificadas, criamos um plano simples para aumentar a visibilidade das unidades, fortalecer a presença no Google e atrair mais pessoas para o bar.
       </p>
       <div class="hero-actions">
         <a class="btn primary" href="#planos">Ver investimento</a>
@@ -459,75 +519,7 @@
       </div>
     </section>
 
-    <section id="diagnostico" class="wrap reveal">
-      <div class="section-title">
-        <div>
-          <h2>Diagnóstico direto: onde o Tamo Junto está perdendo oportunidade</h2>
-          <p class="subtitle">A marca tem força real, mas parte dessa força não está sendo convertida em presença, busca e decisão de visita.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-3">
-        <div class="card danger">
-          <div class="metric">3.4★</div>
-          <h3>Vale dos Lagos gera desconfiança antes da visita</h3>
-          <p>Quando o cliente pesquisa a unidade e encontra nota baixa, perfil fraco ou informações incompletas, ele pode desistir antes mesmo de conhecer o bar.</p>
-        </div>
-        <div class="card danger">
-          <div class="metric">3.6★</div>
-          <h3>Resgate aparece com pouca força no Google</h3>
-          <p>A unidade depende demais do Instagram. Quem procura por “bar no Resgate”, “caranguejo no Cabula” ou “bar perto de mim” pode não encontrar o Tamo Junto com a força necessária.</p>
-        </div>
-        <div class="card">
-          <div class="metric">4.6★</div>
-          <h3>Saúde prova que a marca tem padrão vencedor</h3>
-          <p>A unidade da Saúde mostra que existe reputação, público e experiência positiva. O ponto é levar essa força para todas as unidades no ambiente digital.</p>
-        </div>
-      </div>
-      <br>
-
-      <div class="card highlight pain-card">
-        <h3>A ferida principal</h3>
-        <p>
-          Hoje o Tamo Junto não perde apenas curtidas ou visualizações. Ele perde intenção de compra.
-          O cliente moderno pesquisa antes de sair de casa: olha Google, nota, fotos, rota, cardápio, Instagram e, cada vez mais, pergunta para ferramentas de inteligência artificial onde ir.
-        </p>
-        <br
-        <p>
-          Se as informações estão fracas, fragmentadas ou sem autoridade, o concorrente que aparece melhor ocupa esse espaço.
-        </p>
-      </div>
-    </section>
-
-    <section class="wrap reveal">
-      <div class="split">
-        <div class="card highlight">
-          <h2>O problema não é falta de potencial.</h2>
-          <p class="subtitle">
-            O Tamo Junto já tem identidade, público, gastronomia, música, cultura de botequim e conteúdo com potencial.
-            O que falta é organizar essa força para dominar busca local, campanhas e presença digital.
-          </p>
-          <div class="pill-list">
-            <span class="pill">Google Business</span>
-            <span class="pill">SEO local</span>
-            <span class="pill">Tráfego pago</span>
-            <span class="pill">Site profissional</span>
-            <span class="pill">Conteúdo audiovisual</span>
-            <span class="pill">Busca por IA</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Impacto comercial esperado</h3>
-          <ul>
-            <li>Mais pessoas encontrando as unidades no Google.</li>
-            <li>Campanhas locais com melhor direcionamento.</li>
-            <li>Melhor percepção de profissionalismo da marca.</li>
-            <li>Mais força para datas como Copa, São João e jogos.</li>
-            <li>Menos dependência exclusiva do Instagram.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    
 
     <section id="solucao" class="wrap reveal">
       <div class="section-title">
@@ -574,38 +566,6 @@
     <section class="wrap reveal">
       <div class="section-title">
         <div>
-          <h2>Como as pessoas pesquisam hoje com IA</h2>
-          <p class="subtitle">A busca mudou: o cliente não procura apenas uma marca, ele pede uma recomendação pronta.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>Exemplos de pesquisas atuais</h3>
-          <ul>
-            <li>“Qual o melhor bar para assistir jogo em Salvador?”</li>
-            <li>“Onde comer caranguejo no Cabula ou Resgate?”</li>
-            <li>“Bar com música ao vivo e cerveja gelada perto de mim.”</li>
-            <li>“Botequim bom para ir no São João em Salvador.”</li>
-          </ul>
-        </div>
-        <div class="card highlight">
-          <h3>O que a IA e o Google analisam</h3>
-          <p>
-            Para recomendar um lugar, as plataformas cruzam sinais como site, Google Business, avaliações,
-            fotos, descrição, conteúdo, localização, consistência das informações e autoridade digital.
-          </p>
-          <p>
-            Por isso, site + Google bem estruturado + conteúdo estratégico aumentam a chance da marca ser encontrada,
-            entendida e recomendada.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap reveal">
-      <div class="section-title">
-        <div>
           <h2>Por que o site é importante?</h2>
           <p class="subtitle">O site não é apenas uma página. Ele melhora autoridade, campanha, SEO e confiança.</p>
         </div>
@@ -630,29 +590,6 @@
             <li>Menor controle sobre dados, destino e posicionamento.</li>
             <li>Menor força para SEO e campanhas mais completas.</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap reveal">
-      <div class="section-title">
-        <div>
-          <h2>Como o Tamo Junto ganha força no Google</h2>
-          <p class="subtitle">Desenvolvimento de presença digital profissional;</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="tools">
-          <span class="tool">Google Forte</span>
-          <span class="tool">Mais movimento</span>
-          <span class="tool">Campanhas locais</span>
-          <span class="tool">Estratégia de mídias sociais</span>
-          <span class="tool">Presença profissional</span>
-          <span class="tool">Crescimento digital</span>
-          <span class="tool">SEO local</span>
-          <span class="tool">Conteúdo com identidade</span>
-          <span class="tool">Campanhas sazonais</span>
         </div>
       </div>
     </section>
@@ -717,7 +654,7 @@
 
       <br>
 
-      <table>
+      <table class="responsive-table">
         <thead>
           <tr>
             <th>Item</th>
@@ -727,24 +664,26 @@
         </thead>
         <tbody>
           <tr>
-            <td>Site profissional</td>
-            <td>R$ 1.200</td>
-            <td>Pagamento único (Após pagamento o site passa a ser totalmente do cliente). Recomendado para melhorar SEO, campanha, autoridade e busca por IA.</td>
+            <td data-label="Item">Site profissional</td>
+            <td data-label="Valor">R$ 1.200</td>
+            <td data-label="Observação">Pagamento único. Após a entrega, o site passa a ser do cliente.</td>
           </tr>
           <tr>
-            <td>Gestão de tráfego por unidade</td>
-            <td>R$ 400/mês</td>
-            <td>Valor individual por unidade física.</td>
+            <td data-label="Item">Gestão por unidade</td>
+            <td data-label="Valor">R$ 400/mês</td>
+            <td data-label="Observação">Valor individual para cada unidade física.</td>
           </tr>
           <tr>
-            <td>Gestão para 3 unidades</td>
-            <td><span class="old">R$ 1.200/mês</span> R$ 900/mês</td>
-            <td>Oferta com 25% de desconto na contratação das três unidades.</td>
+            <td data-label="Item">Gestão para 3 unidades</td>
+              <td data-label="Valor">
+                <b style="text-decoration: line-through;">R$ 1.200/mês</b> <br> <span class="promo-price">R$ 900/mês</span></b> 
+              </td>
+            <td data-label="Observação">Oferta com 25% de desconto na contratação das três unidades para tráfego pago.</td>
           </tr>
           <tr>
-            <td>Plano completo com oferta</td>
-            <td>R$ 2.100 inicial</td>
-            <td>Site R$ 1.200 + primeiro mês da gestão das 3 unidades com desconto.</td>
+            <td data-label="Item">Plano completo</td>
+            <td data-label="Valor">R$ 2.100 inicial</td>
+            <td data-label="Observação">Site + primeiro mês de gestão das 3 unidades com desconto.</td>
           </tr>
         </tbody>
       </table>
