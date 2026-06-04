@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Comercial — Tamo Junto Botequim</title>
+  <style>
+    :root {
+      --bg: #000510;
+      --card: #18110c;
+      --card-2: #21170f;
+      --text: #fff7ed;
+      --muted: #c9b8a5;
+      --gold: #ffab00;
+      --gold-2: #f1ab1f; 
+      --green: #22c55e;
+      --red: #ef4444;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, #f59e0b29, transparent 34%),
+        radial-gradient(circle at bottom right, #f59e0b1a, transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 42px 0 28px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(15,11,8,.82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -.02em;
+      font-size: 1.05rem;
+    }
+
+    .brand span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(245,158,11,.14);
+      color: var(--gold-2);
+      border: 1px solid rgba(245,158,11,.35);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: .96;
+      letter-spacing: -.04em;
+      max-width: 940px;
+    }
+
+    h1 strong { color: var(--gold); }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      line-height: 1.3;
+      max-width: 790px;
+      margin-top: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--gold), #ffab00);
+      color: #1a0f05;
+      border: none;
+    }
+
+    .btn:hover { transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 660px;
+      margin-top: 10px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: .7;
+    }
+
+    .metric {
+      font-size: 2.1rem;
+      font-weight: 950;
+      color: var(--gold);
+      letter-spacing: -.05em;
+    }
+
+    .card h3 {
+      margin: 10px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow:
+            0 20px 40px rgba(0,0,0,0.45),
+            0 0 20px rgba(245,158,11,0.12);
+
+        border-color: rgba(245,158,11,0.6);
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    li {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, rgba(245,158,11,.18), rgba(255,255,255,.04));
+      border: 1px solid rgba(245,158,11,.35);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .pill-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .step::before {
+      content: counter(step);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--gold);
+      color: #1a0f05;
+      font-weight: 950;
+    }
+
+    .price-card {
+      background: linear-gradient(180deg, #24170a, #15100c);
+      border: 1px solid rgba(245,158,11,.32);
+    }
+
+    .price {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      color: var(--gold);
+      font-weight: 950;
+      margin: 16px 0 8px;
+      letter-spacing: -.06em;
+    }
+
+    .old-total{
+      margin-top:10px;
+      font-size:13px;
+      color:#ac8538;
+      letter-spacing:0.5px;
+      font-weight:500;
+    }
+
+    .old {
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-right: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    th, td {
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--gold);
+      font-size: .88rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    td { color: var(--muted); }
+    tr:last-child td { border-bottom: 0; }
+
+    .tools {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tool {
+      padding: 12px 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .notice {
+      border-left: 4px solid var(--gold);
+      background: rgba(245,158,11,.10);
+      padding: 18px;
+      border-radius: 16px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 44px 0 64px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 860px) {
+      header { position: relative; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .grid-3, .grid-2, .split { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
+      th, td { display: block; width: 100%; }
+      tr { display: block; border-bottom: 1px solid var(--line); }
+      tr:last-child { border-bottom: 0; }
+    }
+
+    @media print {
+      header, .hero-actions { display: none; }
+      body { background: #fff; color: #111; }
+      .card, .step, table, .notice {
+        box-shadow: none;
+        background: #fff;
+        color: #111;
+        border-color: #ddd;
+      }
+      .card p, .card li, td, .subtitle, .lead, footer, .notice { color: #333; }
+      section { break-inside: avoid; }
+    }
+    .logo {
+      max-width: 30px;
+      height: auto;
+      margin-bottom: 0;
+      line-height: 50%;
+      align-self: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><span>VISION</span></div>
+      <div class="brand">Proposta Comercial <span>• Tamo Junto Botequim</span></div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#diagnostico">Diagnóstico</a>
+        <a href="#solucao">Solução</a>
+        <a href="#planos">Valores</a>
+        <a href="#proximos-passos">Próximos passos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero wrap">
+      <div 
+      class="badge">Estratégia digital para bares e restaurantes
+    </div>
+
+      <h1>Mais presença no Google, mais força no digital e mais público nas unidades do <strong>Tamo Junto Botequim</strong>.</h1>
+      <p class="lead">
+        Uma proposta direta para estruturar site, tráfego pago, Google Business, SEO local e conteúdo audiovisual,
+        transformando a força da marca em crescimento digital real.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#planos">Ver investimento</a>
+        <a class="btn" href="#solucao">Entender estratégia</a>
+      </div>
+    </section>
+
+    <section id="diagnostico" class="wrap reveal">
+      <div class="section-title">
+        <div>
+          <h2>Diagnóstico direto: onde o Tamo Junto está perdendo oportunidade</h2>
+          <p class="subtitle">A marca tem força real, mas parte dessa força não está sendo convertida em presença, busca e decisão de visita.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card danger">
+          <div class="metric">3.4★</div>
+          <h3>Vale dos Lagos gera desconfiança antes da visita</h3>
+          <p>Quando o cliente pesquisa a unidade e encontra nota baixa, perfil fraco ou informações incompletas, ele pode desistir antes mesmo de conhecer o bar.</p>
+        </div>
+        <div class="card danger">
+          <div class="metric">3.6★</div>
+          <h3>Resgate aparece com pouca força no Google</h3>
+          <p>A unidade depende demais do Instagram. Quem procura por “bar no Resgate”, “caranguejo no Cabula” ou “bar perto de mim” pode não encontrar o Tamo Junto com a força necessária.</p>
+        </div>
+        <div class="card">
+          <div class="metric">4.6★</div>
+          <h3>Saúde prova que a marca tem padrão vencedor</h3>
+          <p>A unidade da Saúde mostra que existe reputação, público e experiência positiva. O ponto é levar essa força para todas as unidades no ambiente digital.</p>
+        </div>
+      </div>
+      <br>
+
+      <div class="card highlight pain-card">
+        <h3>A ferida principal</h3>
+        <p>
+          Hoje o Tamo Junto não perde apenas curtidas ou visualizações. Ele perde intenção de compra.
+          O cliente moderno pesquisa antes de sair de casa: olha Google, nota, fotos, rota, cardápio, Instagram e, cada vez mais, pergunta para ferramentas de inteligência artificial onde ir.
+        </p>
+        <br
+        <p>
+          Se as informações estão fracas, fragmentadas ou sem autoridade, o concorrente que aparece melhor ocupa esse espaço.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="split">
+        <div class="card highlight">
+          <h2>O problema não é falta de potencial.</h2>
+          <p class="subtitle">
+            O Tamo Junto já tem identidade, público, gastronomia, música, cultura de botequim e conteúdo com potencial.
+            O que falta é organizar essa força para dominar busca local, campanhas e presença digital.
+          </p>
+          <div class="pill-list">
+            <span class="pill">Google Business</span>
+            <span class="pill">SEO local</span>
+            <span class="pill">Tráfego pago</span>
+            <span class="pill">Site profissional</span>
+            <span class="pill">Conteúdo audiovisual</span>
+            <span class="pill">Busca por IA</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Impacto comercial esperado</h3>
+          <ul>
+            <li>Mais pessoas encontrando as unidades no Google.</li>
+            <li>Campanhas locais com melhor direcionamento.</li>
+            <li>Melhor percepção de profissionalismo da marca.</li>
+            <li>Mais força para datas como Copa, São João e jogos.</li>
+            <li>Menos dependência exclusiva do Instagram.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="solucao" class="wrap reveal">
+      <div class="section-title">
+        <div>
+          <h2>Plano de crescimento digital</h2>
+          <p class="subtitle">A proposta une estrutura, mídia e posicionamento para transformar visibilidade em movimento nas unidades.</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="step">
+          <div>
+            <h3>Site profissional e estratégico</h3>
+            <p>Criação de um site leve, responsivo e otimizado para SEO, campanhas, Google e pesquisas por inteligência artificial.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Google Business avançado</h3>
+            <p>Otimização dos perfis das três unidades, correção de informações, reforço de categorias, descrições, links, fotos e posicionamento local.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Tráfego pago por unidade</h3>
+            <p>Campanhas segmentadas por localização, eventos, promoções e público de interesse, com impulsionamento estratégico no Instagram e Meta Ads.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Conteúdo visual e audiovisual</h3>
+            <p>Criação de criativos estáticos e orientação para gravação de vídeos reais com ambiente, música, comida, cerveja, caranguejo e bastidores.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Campanhas sazonais</h3>
+            <p>Uso estratégico de Copa, São João, jogos, música ao vivo e promoções para gerar movimento, compartilhamento e desejo de visita.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-title">
+        <div>
+          <h2>Como as pessoas pesquisam hoje com IA</h2>
+          <p class="subtitle">A busca mudou: o cliente não procura apenas uma marca, ele pede uma recomendação pronta.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Exemplos de pesquisas atuais</h3>
+          <ul>
+            <li>“Qual o melhor bar para assistir jogo em Salvador?”</li>
+            <li>“Onde comer caranguejo no Cabula ou Resgate?”</li>
+            <li>“Bar com música ao vivo e cerveja gelada perto de mim.”</li>
+            <li>“Botequim bom para ir no São João em Salvador.”</li>
+          </ul>
+        </div>
+        <div class="card highlight">
+          <h3>O que a IA e o Google analisam</h3>
+          <p>
+            Para recomendar um lugar, as plataformas cruzam sinais como site, Google Business, avaliações,
+            fotos, descrição, conteúdo, localização, consistência das informações e autoridade digital.
+          </p>
+          <p>
+            Por isso, site + Google bem estruturado + conteúdo estratégico aumentam a chance da marca ser encontrada,
+            entendida e recomendada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-title">
+        <div>
+          <h2>Por que o site é importante?</h2>
+          <p class="subtitle">O site não é apenas uma página. Ele melhora autoridade, campanha, SEO e confiança.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Com site</h3>
+          <ul>
+            <li>Melhor desempenho em tráfego pago.</li>
+            <li>Mais força para SEO local.</li>
+            <li>Mais confiança para o cliente que pesquisa antes de ir.</li>
+            <li>Base digital própria, fora das redes sociais.</li>
+            <li>Mais chance de aparecer em buscas inteligentes e por IA.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Sem site</h3>
+          <ul>
+            <li>A estratégia funciona, mas com menor estrutura.</li>
+            <li>Maior dependência do Instagram.</li>
+            <li>Menor controle sobre dados, destino e posicionamento.</li>
+            <li>Menor força para SEO e campanhas mais completas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-title">
+        <div>
+          <h2>Como o Tamo Junto ganha força no Google</h2>
+          <p class="subtitle">Desenvolvimento de presença digital profissional;</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tools">
+          <span class="tool">Google Forte</span>
+          <span class="tool">Mais movimento</span>
+          <span class="tool">Campanhas locais</span>
+          <span class="tool">Estratégia de mídias sociais</span>
+          <span class="tool">Presença profissional</span>
+          <span class="tool">Crescimento digital</span>
+          <span class="tool">SEO local</span>
+          <span class="tool">Conteúdo com identidade</span>
+          <span class="tool">Campanhas sazonais</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="planos" class="wrap reveal">
+      <div class="section-title">
+        <div>
+          <h2>Investimento e modelos de contratação</h2>
+          <p class="subtitle">O valor base é por unidade. A condição para as três unidades é uma oferta comercial com desconto.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card price-card">
+          <div class="badge">Recomendado para máxima performance</div>
+          <h3>Com site + Google + tráfego pago</h3>
+          <p>Modelo mais forte para SEO, campanhas, autoridade, presença em IA e conversão de clientes que pesquisam antes de sair.</p>
+          <div class="price">R$ 1.200 + R$ 900/mês</div>
+            <div class="old-total">Valor total: R$ 2.100 (Oferta com 25% de desconto na contratação das três unidades.) </div>
+            <br>
+          <ul>
+            <li>Site profissional — pagamento único.</li>
+            <li>Site institucional/comercial do Tamo Junto.</li>
+            <li>Estrutura pensada para Google, SEO e campanhas.</li>
+            <li>Melhor base para anúncios e pesquisas por IA.</li>
+            <li>Gestão de tráfego contratada à parte por unidade.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="badge">Entrada mais enxuta</div>
+          <h3>Sem site + Google + tráfego pago</h3>
+          <p>Funciona para iniciar, mas com menor força de SEO, menor autoridade própria e mais dependência do Instagram.</p>
+          <div class="price">R$ 400/mês por unidade
+          <div class="old-total">(Oferta com 25% de desconto na contratação das três unidades.)</div>
+          </div>
+            <br>
+          <ul>
+            <li>Gestão de tráfego por unidade física.</li>
+            <li>Seja encontrado no google (Google Business e SEO local).</li>
+            <li>Campanhas e impulsionamentos.</li>
+            <li>Criativos estáticos.</li>
+            <li>Estratégia com vídeos, caso o bar colabore com materiais.</li>
+            <li>Recomendado como plano inicial, mas não como estrutura ideal.</li>
+          </ul>
+        </div>
+      </div> 
+
+      <br>
+
+      <div class="card highlight">
+        <h3>Oferta para as 3 unidades</h3>
+        <p>
+          A gestão de tráfego custa <strong>R$ 400/mês por unidade</strong>.
+          Para três unidades, o valor normal seria <strong>R$ 1.200/mês</strong>.
+        </p>
+        <p>
+          Caso o Tamo Junto implemente a gestão nas três unidades, aplicamos <strong>25% de desconto</strong>,
+          reduzindo a mensalidade para <strong>R$ 900/mês</strong>.
+        </p>
+      </div>
+
+      <br>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Valor base</th>
+            <th>Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Site profissional</td>
+            <td>R$ 1.200</td>
+            <td>Pagamento único (Após pagamento o site passa a ser totalmente do cliente). Recomendado para melhorar SEO, campanha, autoridade e busca por IA.</td>
+          </tr>
+          <tr>
+            <td>Gestão de tráfego por unidade</td>
+            <td>R$ 400/mês</td>
+            <td>Valor individual por unidade física.</td>
+          </tr>
+          <tr>
+            <td>Gestão para 3 unidades</td>
+            <td><span class="old">R$ 1.200/mês</span> R$ 900/mês</td>
+            <td>Oferta com 25% de desconto na contratação das três unidades.</td>
+          </tr>
+          <tr>
+            <td>Plano completo com oferta</td>
+            <td>R$ 2.100 inicial</td>
+            <td>Site R$ 1.200 + primeiro mês da gestão das 3 unidades com desconto.</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+
+      <div class="notice">
+        Importante: R$ 2.100 não é o valor fixo de todos os casos. É o cenário completo considerando site + primeiro mês de gestão nas três unidades com desconto.
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-title">
+        <div>
+          <h2>Área de mídia em conjunto</h2>
+          <p class="subtitle">O conteúdo mais forte do Tamo Junto não está só no design. Está na experiência real do bar.</p>
+        </div>
+      </div>
+
+      <div class="card highlight">
+        <h3>Como trabalharemos o audiovisual</h3>
+        <p>
+        Para que as campanhas tenham mais autenticidade e desempenho,
+        trabalharemos utilizando conteúdos reais do ambiente e da
+        experiência do bar.
+        </p>
+        <br>
+        <p>
+        Nossa equipe ficará responsável pelo direcionamento estratégico,
+        ideias de conteúdo, organização visual das campanhas e utilização
+        do material nas postagens e anúncios.
+        </p>
+        <br>
+        <p>
+        A captação dos vídeos e momentos do dia a dia ficará sob
+        responsabilidade da equipe/proprietários do bar.
+        </p>
+        <br>
+        <ul>
+          <li>Orientação de cenas e ideias de vídeos.</li>
+          <li>Uso de conteúdos reais nas campanhas.</li>
+          <li>Combinação entre design profissional e vídeos autênticos.</li>
+          <li>Maior potencial de alcance e compartilhamento no Instagram.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="proximos-passos" class="wrap reveal">
+      <div class="split">
+        <div class="card">
+          <h2>Próximos passos</h2>
+      <br>
+
+          <ul>
+            <li>Aprovação da proposta.</li>
+            <li>Alinhamento com proprietários ou equipe responsável.</li>
+            <li>Coleta de acessos e materiais da marca.</li>
+            <li>Estruturação do site e Google Business.</li>
+            <li>Planejamento das primeiras campanhas.</li>
+            <li>Início da gestão mensal.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Condições comerciais</h3>
+          <p>Aceitamos PIX, cartão ou parcelamento semanal quando houver tráfego mensal incluso. O site pode ser pago à parte e a gestão mensal pode ser organizada conforme quantidade de unidades contratadas.</p>
+          <br>
+          <div class="notice">
+            O investimento em anúncios <b>NÃO</b> está incluso na gestão. O valor da verba de mídia deve ser definido conforme objetivo, calendário e unidades prioritárias.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Proposta Comercial — Posicionamento Digital, Google, Site e
+      <br>
+    Tráfego Pago para Tamo Junto Botequim.
+  </footer>
+
+  <script>
+    const items = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    items.forEach((item) => observer.observe(item));
+  </script>
+</body>
+</html>
